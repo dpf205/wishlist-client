@@ -16,6 +16,7 @@ class App extends Component {
 
         this.loadData();
     }
+
     loadData = () => {
         http.getProducts().then(products => {
             console.log(products);
@@ -31,8 +32,18 @@ class App extends Component {
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h2 className="App-title"> MERN Wishlist</h2>
                 </div>
-                <div className="App-main">
-                    <Product/>
+
+                <div className="container App-main">
+                    <div className="row">
+                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
+                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
+
+                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
+                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
+
+                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
+                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
+                    </div>
                 </div>
             </div>
         );
