@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HttpService from '../services/http-service';
+
+// Components
 import Product from '../product/product';
+import WishList from '../wishlist/wishlist.js'
+
+// Services
+import HttpService from '../services/http-service';
 
 const http = new HttpService();
 
@@ -30,12 +35,12 @@ class App extends Component {
     };
 
     productList = () => {
-        const list = this.state.products.map((product) => 
+        const list = this.state.products.map((product) =>
 
-             <div className="col-sm-4" key={product._id}>
+            <div className="col-sm-4" key={product._id}>
                 <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
             </div>
-    );
+        );
 
         return (list);
     };
@@ -50,7 +55,15 @@ class App extends Component {
 
                 <div className="container App-main">
                     <div className="row">
-                        {this.productList()}
+                        <div className="col-sm-8">
+                            <div className="row">
+                                {this.productList()}
+                            </div>
+                        </div>
+
+                        <div className="col-sm-4">
+                            <WishList/>
+                        </div>
                     </div>
                 </div>
             </div>
