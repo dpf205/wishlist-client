@@ -11,18 +11,33 @@ class App extends Component {
     constructor(props) {
         super(props);
 
-        // ES6 bind the function to the class to get access to the function
-        this.loadData = this.loadData.bind(this);
+        this.state = {products: []};
 
+        // bind functions to access
+        this.loadData = this.loadData.bind(this);
+        this.productList = this.productList.bind(this);
         this.loadData();
+        this.productList();
     }
 
     loadData = () => {
-        http.getProducts().then(products => {
-            console.log(products);
+        let self = this;
+        http.getProducts().then(data => {
+            self.setState({products: data}); // calling setState() to refresh component
         }, err => {
 
         });
+    };
+
+    productList = () => {
+        const list = this.state.products.map((product) => 
+
+             <div className="col-sm-4" key={product._id}>
+                <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
+            </div>
+    );
+
+        return (list);
     };
 
     render() {
@@ -35,14 +50,7 @@ class App extends Component {
 
                 <div className="container App-main">
                     <div className="row">
-                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
-                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
-
-                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
-                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
-
-                        <Product className="col-sm-4" price="1199.99" title="Cruise Holiday Package" imgUrl="http://www.travelblat.com/
-                    wp-content/uploads/2011/08/Cruise-Holidays.jpg"/>
+                        {this.productList()}
                     </div>
                 </div>
             </div>
