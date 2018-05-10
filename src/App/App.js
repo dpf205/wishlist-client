@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 // Components
@@ -28,7 +28,7 @@ class App extends Component {
     loadData = () => {
         let self = this;
         http.getProducts().then(data => {
-            self.setState({products: data}); // calling setState() to refresh component
+            self.setState({products: data}); // calling setState() to refresh component view
         }, err => {
 
         });
@@ -49,7 +49,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
+                    {/*<img src={logo} className="App-logo" alt="logo"/>*/}
                     <h2 className="App-title"> MERN Wishlist</h2>
                 </div>
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './wishlist.css';
 import ProductCondensed from '../product-condensed/product-condensed.js';
+import DataService from '../services/data-service';
 
 class WishList extends Component {
     constructor(props) {
