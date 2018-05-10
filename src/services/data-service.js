@@ -1,7 +1,7 @@
 let instance = null;
 let wishlist = [];
 
-// singleton pattern
+// use Singleton Pattern to access the SAME instance
 class DataService {
     constructor() {
         if (!instance) {
