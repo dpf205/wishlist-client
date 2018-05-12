@@ -38,7 +38,7 @@ class App extends Component {
         const list = this.state.products.map((product) =>
 
             <div className="col-sm-4" key={product._id}>
-                <Product title={product.title} price={product.price} imgUrl={product.imgUrl}/>
+                <Product product={product} />
             </div>
         );
 
@@ -50,7 +50,7 @@ class App extends Component {
             <div className="App">
                 <div className="App-header">
                     {/*<img src={logo} className="App-logo" alt="logo"/>*/}
-                    <h2 className="App-title"> MERN Wishlist</h2>
+                    <h2 className="App-title"> TODO: resize components in CSS</h2>
                 </div>
 
                 <div className="container App-main">
